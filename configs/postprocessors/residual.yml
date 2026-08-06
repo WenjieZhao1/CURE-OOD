@@ -1,0 +1,8 @@
+postprocessor:
+  name: residual
+  APS_mode: True
+  postprocessor_args:
+    dim: 32
+  postprocessor_sweep:
+    dim_list: [32]
+  hyperparam_search_done: False

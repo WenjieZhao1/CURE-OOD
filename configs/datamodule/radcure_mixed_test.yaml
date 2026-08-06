@@ -1,0 +1,32 @@
+_target_: src.datamodules.radcure_mixed_datamodule.RadCureMixedDataModule
+
+root_dir: ${original_work_dir}
+id_data_path: ${data_dir}/ExposureTime_ID.csv
+ood_data_path: ${data_dir}/ExposureTime_OOD.csv
+train_cache_dir: ${data_dir}/nifti_cache
+test_cache_dir: ${data_dir}/nifti_cache
+train_filename: ${data_dir}/ExposureTime_Train.csv
+
+batch_size: 32
+id_fraction: 0.5
+ensure_balanced_batches: true
+shuffle: true
+drop_last: false
+num_workers: 8
+pin_memory: true
+
+patch_xy: 80
+patch_z: 48
+patch_sz: 8
+p_tumor: 0.5
+time_bins_data: ${model.time_bins}
+patient_split: true
+
+id_domain_label: 0
+ood_domain_label: 1
+mini_batch_size: null
+mini_batches_per_domain: 1
+apply_noise: false
+noise_type: gaussian
+noise_severity: 1
+noise_probability: 1.0

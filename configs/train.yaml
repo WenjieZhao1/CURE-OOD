@@ -1,0 +1,22 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - datamodule: radcure_train_test
+  - model: radcure_model_img_vit_os
+  - callbacks: default
+  - logger: csv
+  - trainer: default
+  - log_dir: default
+  - override hydra/hydra_logging: default
+  - override hydra/job_logging: default
+
+original_work_dir: ${hydra:runtime.cwd}
+data_dir: ${original_work_dir}/data
+
+print_config: true
+ignore_warnings: true
+train: true
+test: true
+seed: 786
+name: "RadCure_ImgVit_OS"

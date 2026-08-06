@@ -1,0 +1,30 @@
+_target_: src.models.deepmtlr_model_vit_os.DEEP_MTLR
+
+model: "UNETR_Img"
+dense_factor : 1
+n_dense : 2
+dropout : 0.25
+C1 : 1
+lr : 1e-3
+weight_decay: 0.01
+time_bins: 8
+loss_gamma: 0.1
+in_channels: 2
+out_channels: 0
+num_classes: 2
+extended_scores_enabled: false
+metric_bootstrap_n: 0
+metric_bootstrap_seed: 786
+
+k1 : 3
+k2 : 5
+
+step: 20, 50, 100, 150, 200
+
+patch_size : 8
+patch_xy: 80
+patch_z: 48
+hidden_size : 768
+mlp_dim : 3072
+num_layers : 12
+num_heads : 12

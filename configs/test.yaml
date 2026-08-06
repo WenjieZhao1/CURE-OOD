@@ -1,0 +1,51 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - datamodule: radcure_train_test
+  - model: radcure_model_img_vit
+  - callbacks: none
+  - logger: csv
+  - trainer: default
+  - log_dir: evaluation
+  - override hydra/hydra_logging: default
+  - override hydra/job_logging: default
+
+original_work_dir: ${hydra:runtime.cwd}
+data_dir: ${original_work_dir}/data
+
+print_config: true
+ignore_warnings: true
+seed: 786
+name: "RadCure_Survival_Evaluation"
+
+ckpt_path: null
+ood_detection: false
+save_ood_scores: false
+output_dir: ${original_work_dir}/outputs/survival
+
+hazard_reference:
+  mode: none
+  dir: ${output_dir}/hazard_reference
+
+postprocessor:
+  enable: false
+  name: msp
+  dataset_name: cancer_survival
+  evaluate_per_task: true
+  metrics_output: null
+  bootstrap:
+    enabled: false
+    n_bootstrap: 1000
+    ci_level: 0.95
+    seed: 786
+
+survival_dist_metrics:
+  enable: false
+  output: null
+
+survival_hazarddev:
+  enable: false
+  mode: none
+  dir: ${output_dir}/deephit_hazard_reference
+  output: null

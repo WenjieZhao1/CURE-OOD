@@ -155,6 +155,8 @@ Except where otherwise noted, the original code in this repository is licensed u
 
 The benchmark data are derived from the RADCURE collection hosted by The Cancer Imaging Archive (TCIA): Welch, M. L., et al. (2023), *Computed Tomography Images from Large Head and Neck Cohort (RADCURE)*, Version 4, https://doi.org/10.7937/J47W-NM11.
 
+This repository builds on the [Multi-Label Survival Prediction](https://github.com/LabAIRT/Multi-Label-Survival-Prediction) project. Please refer to its GitHub repository for the original implementation.
+
 If you use this code, please also cite:
 
 ```bibtex
